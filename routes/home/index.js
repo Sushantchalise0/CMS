@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../../models/Post');
+const Category = require('../../models/Category');
 
 
 router.all('/*', (req, res, next) => {
@@ -12,7 +13,11 @@ router.all('/*', (req, res, next) => {
 router.get('/', (req, res) => {
 
     Post.find({}).then(posts => {
-        res.render('home/index', { posts: posts });
+
+        Category.find({}).then(categories => {
+
+            res.render('home/index', { posts: posts, categories: categories });
+        });
     });  
 });
 
@@ -36,8 +41,10 @@ router.get('/post/:id', (req, res) => {
     Post.findOne({_id: req.params.id})
         .then(post => {
             
-            res.render('home/post', {post: post});
+            Category.find({}).then(categories => {
+            res.render('home/post', {post: post, categories:categories});
         });
+    });
 });
 
 
