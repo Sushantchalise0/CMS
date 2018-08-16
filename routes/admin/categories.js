@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const { isEmpty, uploadDir } = require('../../helpers/upload-helper');
-
+const {userAuth} = require('../../helpers/authen');
 const Category = require('../../models/Category');
 const fs = require('fs');
 
-router.all('/*', (req, res, next) => {
+router.all('/*', userAuth, (req, res, next) => {
 
     req.app.locals.layout = 'admin';
     next(); 
