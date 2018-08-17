@@ -5,7 +5,7 @@ const faker = require('faker');
 const {userAuth} = require('../../helpers/authen');
 
 
-router.all('/*', userAuth, (req, res, next) => {
+router.all('/*', (req, res, next) => {
 
     req.app.locals.layout = 'admin';
     next(); 
