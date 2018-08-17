@@ -50,7 +50,7 @@ passport.use(new LocalStrategy({usernameField: 'email'}, (email, password, done)
                 return done(null, user);
             } else {
 
-                return done(null, false, {message: 'Incorrect message'});
+                return done(null, false, {message: 'Incorrect password'});
             }
         });
     });
