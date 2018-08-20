@@ -1,4 +1,4 @@
 module.exports = {
 
-    mongoDbUrl: 'mongodb://localhost:27017/cms'
+    mongoDbUrl: 'mongodb://cms-user:helloworld123@ds127362.mlab.com:27362/sushant-cms'
 };
